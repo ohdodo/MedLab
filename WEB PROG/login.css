@@ -1,0 +1,167 @@
+:root {
+  --bg--color: rgb(200, 238, 233);
+  --hover--color: rgba(255, 0, 0, 0.421);
+  --primary--color: #000000;
+  --text--color: #110000;
+  --highlight--color: maroon;
+  --white--text: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", "Arial Narrow", "sans-serif";
+  outline: none;
+  border: none;
+  text-decoration: none;
+  transition: 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 2rem 9%;
+}
+
+.heading {
+  text-align: center;
+  font-size: 4rem;
+  color: var(--primary--color);
+  padding: 1rem;
+  margin: 2rem 0;
+  background: var(--bg--color);
+}
+
+.heading span {
+  color: var(--highlight--color);
+}
+
+.button {
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: 5rem;
+  background: var(--bg--color);
+  color: var(--text--color);
+  padding: 0.9rem 3.5rem;
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+
+.button:hover {
+  background: var(--hover--color);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg--color);
+  padding: 2rem 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+#logo {
+  width: 100%;
+  height: auto;
+  max-width: 100px;
+}
+
+header .navbar a {
+  font-size: 2rem;
+  padding: 0 1.5rem;
+  color: var(--primary--color);
+}
+
+header .navbar a:hover {
+  color: var(--hover--color);
+}
+
+header .icons a {
+  font-size: 2.5rem;
+  color: var(--primary--color);
+  margin-left: 1.5rem;
+}
+
+header .icons a:hover {
+  color: var(--hover--color);
+}
+
+header #toggler {
+  display: none;
+}
+
+header .fa-bars {
+  font-size: 3rem;
+  color: var(--text--color);
+  border-radius: 0.5rem;
+  padding: 0.5em 1.5rem;
+  cursor: pointer;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+footer {
+  background: var(--bg--color);
+}
+
+footer .box_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+footer .box_container .box {
+  flex: 1 1 250px;
+}
+
+footer .box_container .box h3 {
+  color: var(--text--color);
+  font-size: 2.5rem;
+  padding: 10px 0;
+  margin-left: 20px;
+}
+
+footer .box_container .box a {
+  display: block;
+  color: var(--primary--color);
+  font-size: 1.35rem;
+  padding: 10px 0;
+  margin-left: 30px;
+}
+
+footer .box_container .box a:hover {
+  color: var(--hover--color);
+  text-decoration: underline;
+}
+
+footer .box_container .box img {
+  margin-top: 10px;
+  width: 250px;
+  margin-left: 30px;
+}
+
+footer .credit {
+  background: var(--bg--color);
+  text-align: center;
+  padding: 15px;
+  margin-top: 15px;
+  padding-top: 25px;
+  font-size: 20px;
+  color: var(--text--color);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+footer .credit span {
+  color: var(--hover--color);
+}

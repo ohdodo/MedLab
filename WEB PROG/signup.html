@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MEDLAB</title>
+    <link rel="stylesheet" href="signup_design.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.15.0/css/all.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <img id="signup-bg-img" src="signup_image.jpg" alt="Background Image" />
+      <div id="sign_up" class="form-container">
+        <img id="logo" src="medlab_logo.png" />
+        <h2>Sign Up Now</h2>
+        <form action="index_signup.php" method="post">
+          <input
+            type="text"
+            name="fName"
+            placeholder="Insert First Name"
+            required
+          />
+          <input
+            type="text"
+            name="lName"
+            placeholder="Insert Last Name"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Insert Email"
+            required
+          />
+          <input
+            type="date"
+            name="birthday"
+            placeholder="Insert Birthday"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Insert Password"
+            required
+          />
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="is_admin" name="is_admin" />
+            <label for="is_admin">Register as Admin</label>
+          </div>
+          <input type="submit" class="button" value="Sign Up" name="signUp" />
+          <p>
+            Already have an account?
+            <a href="login.html" onclick="toggleForm('login-form')"
+              >Log In Here</a
+            >
+          </p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

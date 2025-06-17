@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      margin: 20px;
+    }
+
+    .button-container {
+      margin: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Insertion Sort Visualization (PHP)</h1>
+  <div class="container">
+    <div class="button-container">
+      <form method="post">
+        <input type="number" name="number-input" placeholder="Enter a number">
+        <input type="submit" name="add-number" value="Add Number">
+        <input type="submit" name="sort-numbers" value="Sort">
+        <input type="submit" name="clear-data" value="Clear">
+      </form>
+    </div>
+    <div id="results">
+      <div class="container">
+        <h2>Original List</h2>
+        <table id="original-list"></table>
+      </div>
+      <div class="container">
+        <h2>Sorting Steps</h2>
+        <table id="sorting-steps"></table>
+      </div>
+      <div class="container">
+        <h2>Sorted List</h2>
+        <table id="sorted-list"></table>
+      </div>
+    </div>
+  </div>
+
+  <?php
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    session_start();
+
+    if (!isset($_SESSION['numbers'])) {
+      $_SESSION['numbers'] = [];
+    }
+
+    if (!isset($_SESSION['sorting_steps'])) {
+      $_SESSION['sorting_steps'] = [];
+    }
+
+    if (isset($_POST['add-number'])) {
+      $number = intval($_POST['number-input']);
+      if (!empty($number)) {
+        $_SESSION['numbers'][] = $number;
+      }
+    }
+
+    if (isset($_POST['sort-numbers'])) {
+      list($sortedList, $steps) = insertionSort($_SESSION['numbers']);
+      $_SESSION['sorting_steps'] = $steps;
+    }
+
+    if (isset($_POST['clear-data'])) {
+      unset($_SESSION['numbers']);
+      unset($_SESSION['sorting_steps']);
+    }
+  }
+
+  // Function to perform Insertion Sort and collect steps
+  function insertionSort($arr) {
+    $steps = [];
+
+    for ($i = 1; $i < count($arr); $i++) {
+      $key = $arr[$i];
+      $j = $i - 1;
+
+      while ($j >= 0 && $arr[$j] > $key) {
+        $arr[$j + 1] = $arr[$j];
+        $j--;
+      }
+
+      $arr[$j + 1] = $key;
+      $steps[] = [$key, $arr];
+    }
+
+    return [$arr, $steps];
+  }
+
+  // Display the original list
+  echo '<script>';
+  echo 'const originalList = document.getElementById("original-list");';
+  echo 'originalList.innerHTML = "";';
+  echo 'const row = originalList.insertRow();';
+  foreach ($_SESSION['numbers'] as $number) {
+    echo 'const cell = row.insertCell(' . (count($row->getElementsByTagName('td')) - 1) . ');';
+    echo 'cell.innerHTML = ' . $number . ';';
+  }
+  echo '</script>';
+
+  // Display the sorting steps
+  echo '<script>';
+  echo 'const sortingStepsTable = document.getElementById("sorting-steps");';
+  echo 'sortingStepsTable.innerHTML = "";';
+  echo 'const sortingSteps = ' . json_encode($_SESSION['sorting_steps']) . ';';
+  echo 'sortingSteps.forEach(step => {';
+  echo '  const [key, currentList] = step;';
+  echo '  const row = sortingStepsTable.insertRow();';
+  echo '  const stepCell = row.insertCell(0);';
+  echo '  const comparedCell = row.insertCell(1);';
+  echo '  const swapCell = row.insertCell(2);';
+  echo '  stepCell.innerHTML = "Step";';
+  echo '  comparedCell.innerHTML = "Comparing: ";';
+  echo '  swapCell.innerHTML = "Current List: [" + currentList.join(", ") + "]";';
+  echo '});';
+  echo '</script>';
+
+  // Display the sorted list
+  echo '<script>';
+  echo 'const sortedListTable = document.getElementById("sorted-list");';
+  echo 'sortedListTable.innerHTML = "";';
+  echo 'const sortedList = ' . json_encode($_SESSION['numbers']) . ';';
+  echo 'const row = sortedListTable.insertRow();';
+  foreach ($_SESSION['numbers'] as $number) {
+    echo 'const cell = row.insertCell(' . (count($row->getElementsByTagName('td')) - 1) . ');';
+    echo 'cell.innerHTML = ' . $number . ';';
+  }
+  echo '</script>';
+  ?>
+</body>
+</html>

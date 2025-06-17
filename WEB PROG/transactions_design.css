@@ -1,0 +1,170 @@
+:root {
+  --bg-color: rgb(200, 238, 233);
+  --hover-color: rgba(255, 0, 0, 0.421);
+  --primary-color: #000000;
+  --text-color: #110000;
+  --highlight-color: maroon;
+  --white-text: white;
+}
+
+.transactions {
+  margin-top: 100px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.transaction-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.transaction-item h3 {
+  margin-top: 0;
+  color: var(--highlight-color);
+  font-size: 2rem;
+}
+
+.transaction-item p {
+  margin: 5px 0;
+  font-size: 1.4rem;
+}
+
+.order-items {
+  margin-top: 15px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.product-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.item-details {
+  flex-grow: 1;
+}
+
+.item-details p {
+  margin: 3px 0;
+  font-size: 1.3rem;
+}
+
+.no-transactions {
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--text-color);
+  margin-top: 50px;
+}
+
+.transactions .heading {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 930px) {
+  header {
+    padding: 1rem 5%;
+  }
+
+  header label.fas.fa-bars {
+    display: inline-block;
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+
+  header .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-color);
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+
+  header #toggler:checked ~ .navbar {
+    display: block;
+  }
+
+  header .navbar a {
+    display: block;
+    margin: 1.5rem;
+    padding: 1rem;
+    font-size: 2rem;
+    background: #fff;
+  }
+
+  .transactions {
+    margin-top: 80px;
+    padding: 10px;
+  }
+
+  .transaction-item {
+    padding: 15px;
+  }
+
+  .order-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product-image {
+    margin-bottom: 10px;
+  }
+
+  .item-details p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .transactions {
+    margin-top: 60px;
+    padding: 10px;
+  }
+
+  .transaction-item h3 {
+    font-size: 1.8rem;
+  }
+
+  .transaction-item p {
+    font-size: 1.2rem;
+  }
+
+  .product-image {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (min-width: 931px) {
+  header label.fas.fa-bars,
+  header #toggler {
+    display: none;
+  }
+
+  header .navbar {
+    display: flex !important;
+  }
+}

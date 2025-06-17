@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>MEDLAB</title>
+        <link rel="stylesheet" href="user_design.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.0/css/all.css">
+    </head>
+    <body>
+        <div class="container">
+            <div id="log_in" class="form-container">
+                <h2>MEDLAB LOGIN</h2>
+                <form action="/login" method="post">
+                    <input type="email" name="email" placeholder="Insert Email Here" required>
+                    <input type="password" name="password" placeholder="Insert Password Here" required>
+                    <button type="submit">LOG IN</button>
+                    <p>Don't have an account? <a href="#" onclick="toggleForm('signup-form')">Sign Up Here</a></p>
+                </form>
+            </div>
+            <div id="signup-form" class="form-container hidden">
+                <h2>MEDLAB SIGNUP</h2>
+                <form action="/signup" method="post">
+                    <input type="text" name="first_name" placeholder="Insert First Name" required>
+                    <input type="text" name="last_name" placeholder="Insert Last Name" required>
+                    <input type="email" name="email" placeholder="Insert Email" required>
+                    <input type="date" name="birthday" placeholder="Insert Birthday" required>
+                    <input type="password" name="password" placeholder="Insert Password" required>
+                    <input type="password" name="confirm_password" placeholder="Confirm your Password" required>
+                    <button type="submit">Sign Up</button>
+                    <p>Already have an account? <a href="#" onclick="toggleForm('login-form')">Log In</a></p>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
